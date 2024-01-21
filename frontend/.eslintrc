@@ -1,0 +1,6 @@
+{
+    "extends": "canonical/auto",
+    "rules": {
+        "react/forbid-component-props": [0]
+    }
+}
