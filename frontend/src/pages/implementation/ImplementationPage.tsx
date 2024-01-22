@@ -105,59 +105,57 @@ export const ImplementationPage = () => {
   }, [])
 
   return (
-    <div>
-      <ElevatorContainer>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '100px' }}>
-          <Doors>
-            {elevators.map((elevator, index) => (
-              <span key={index}>
-                <ElevatorSign
-                  isSelected={
-                    selectedElevator
-                      ? selectedElevator.elevatorId == elevator.elevatorId
-                      : false
+    <ElevatorContainer>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '100px' }}>
+        <Doors>
+          {elevators.map((elevator, index) => (
+            <div key={index}>
+              <ElevatorSign
+                isSelected={
+                  selectedElevator
+                    ? selectedElevator.elevatorId == elevator.elevatorId
+                    : false
+                }
+              >
+                {elevator.currentFloor}
+              </ElevatorSign>
+              <DoorContainer>
+                <Door
+                  isOpen={
+                    !!selectedElevator && elevator.currentFloor == userFloor
                   }
-                >
-                  {elevator.currentFloor}
-                </ElevatorSign>
-                <DoorContainer>
-                  <Door
-                    isOpen={
-                      !!selectedElevator && elevator.currentFloor == userFloor
-                    }
-                  />
-                  <div
-                    style={{
-                      background: 'black',
-                      width: '2px',
-                    }}
-                  />
-                  <Door
-                    isOpen={
-                      !!selectedElevator && elevator.currentFloor == userFloor
-                    }
-                  />
-                </DoorContainer>
-              </span>
-            ))}
-          </Doors>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <FloorDropdown
-              floor={userFloor}
-              floors={FLOORS}
-              onClick={(floor) => setUserFloor(floor)}
-            />
-            <ControlPanel onClick={handleElevatorCall} seconds={seconds} />
-          </div>
+                />
+                <div
+                  style={{
+                    background: 'black',
+                    width: '2px',
+                  }}
+                />
+                <Door
+                  isOpen={
+                    !!selectedElevator && elevator.currentFloor == userFloor
+                  }
+                />
+              </DoorContainer>
+            </div>
+          ))}
+        </Doors>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <FloorDropdown
+            floor={userFloor}
+            floors={FLOORS}
+            onClick={(floor) => setUserFloor(floor)}
+          />
+          <ControlPanel onClick={handleElevatorCall} seconds={seconds} />
         </div>
-      </ElevatorContainer>
-    </div>
+      </div>
+    </ElevatorContainer>
   )
 }
