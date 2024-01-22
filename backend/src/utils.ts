@@ -15,7 +15,7 @@ export const initDatabase = async () => {
       const randomFloor = Math.floor(Math.random() * 20);
       return await Elevator.create({
         elevatorId: index,
-        isIdle: false,
+        isIdle: true,
         currentFloor: randomFloor,
         destinationFloor: randomFloor,
       });

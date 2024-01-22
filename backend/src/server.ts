@@ -1,6 +1,6 @@
 import cors from "cors";
 import helmet from "helmet";
-import express, { NextFunction, Request, Response, Router } from "express";
+import express, { NextFunction, Router } from "express";
 import elevatorRoutes from "./routes/elevatorRoutes";
 import { initDatabase, rateLimiter } from "./utils";
 import sequelize from "./models";
@@ -15,7 +15,7 @@ router.get("/sample", (context) => {
 });
 
 app.use(cors());
-app.use(helmet());
+// app.use(helmet());
 app.use(rateLimiter);
 app.use(express.json());
 app.use("/api/v1", elevatorRoutes);

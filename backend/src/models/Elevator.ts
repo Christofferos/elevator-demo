@@ -19,7 +19,7 @@ Elevator.init(
     isIdle: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false,
+      defaultValue: true,
     },
     currentFloor: {
       type: DataTypes.INTEGER,
