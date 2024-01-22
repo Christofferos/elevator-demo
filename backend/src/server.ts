@@ -1,18 +1,11 @@
 import cors from "cors";
 import helmet from "helmet";
-import express, { NextFunction, Router } from "express";
+import express, { NextFunction } from "express";
 import elevatorRoutes from "./routes/elevatorRoutes";
 import { initDatabase, rateLimiter } from "./utils";
 import sequelize from "./models";
 
 const app = express();
-const router = Router();
-
-// This is just an example route
-router.get("/sample", (context) => {
-  context.body = { message: "Hello world" };
-  context.statusCode = 200;
-});
 
 app.use(cors());
 // app.use(helmet());
