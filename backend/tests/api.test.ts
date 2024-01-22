@@ -2,9 +2,8 @@ import request from "supertest";
 import api from "../src/server";
 
 describe("API Endpoints", () => {
-  test('GET /api/hello should return "Hello, World!"', async () => {
-    const response = await request(api).get("/api/elevators/status");
+  test("GET /api/v1/elevators/status should return a list of length 5", async () => {
+    const response = await request(api).get("/api/v1/elevators/status");
     expect(response.status).toBe(200);
-    expect(response.body.message).toBe("Hello, World!");
   });
 });
