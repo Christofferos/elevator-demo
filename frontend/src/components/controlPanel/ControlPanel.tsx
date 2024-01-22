@@ -1,5 +1,5 @@
 import React from 'react'
-import { ControlPanelContainer, RedCircle, SecondsDisplay } from './styled.js'
+import { ControlPanelContainer, PanelButton, PanelDisplay } from './styled.js'
 
 interface Props {
   onClick: () => void
@@ -9,12 +9,12 @@ interface Props {
 export const ControlPanel: React.FC<Props> = ({ onClick, seconds }) => {
   return (
     <ControlPanelContainer>
-      <RedCircle
+      <PanelButton
         onClick={onClick}
         disabled={!!seconds}
         isDisabled={!!seconds}
       />
-      <SecondsDisplay>
+      <PanelDisplay>
         {seconds === undefined && (
           <span style={{ textAlign: 'center' }}>Call Elevator</span>
         )}
@@ -22,7 +22,7 @@ export const ControlPanel: React.FC<Props> = ({ onClick, seconds }) => {
           <span style={{ textAlign: 'center' }}>{seconds} sec</span>
         )}
         {seconds == 0 && <span style={{ textAlign: 'center' }}>Ready</span>}
-      </SecondsDisplay>
+      </PanelDisplay>
     </ControlPanelContainer>
   )
 }

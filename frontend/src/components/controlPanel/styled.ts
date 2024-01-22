@@ -10,7 +10,7 @@ export const ControlPanelContainer = styled.div`
   width: 200px;
   border-radius: 10px;
 `
-export const RedCircle = styled.button<{ isDisabled: boolean }>`
+export const PanelButton = styled.button<{ isDisabled: boolean }>`
   width: 100px;
   height: 100px;
   background-color: ${(props) => (props.isDisabled ? '#ddd' : 'red')};
@@ -23,7 +23,7 @@ export const RedCircle = styled.button<{ isDisabled: boolean }>`
   }
 `
 
-export const SecondsDisplay = styled.div`
+export const PanelDisplay = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
