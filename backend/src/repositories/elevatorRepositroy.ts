@@ -25,6 +25,7 @@ export const scheduleUpdateCurrentFloor = (
       if (!elevator) {
         throw new Error("Elevator not found");
       }
+      elevator.isIdle = true;
       elevator.currentFloor = currentElevatorFloor;
       await elevator.save();
     } catch (error) {
